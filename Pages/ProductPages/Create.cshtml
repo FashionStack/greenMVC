@@ -5,55 +5,109 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
 
-<h4>Product</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Product.Name" class="control-label"></label>
-                <input asp-for="Product.Name" class="form-control" />
-                <span asp-validation-for="Product.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.Size" class="control-label"></label>
-                <input asp-for="Product.Size" class="form-control" />
-                <span asp-validation-for="Product.Size" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.SKU" class="control-label"></label>
-                <input asp-for="Product.SKU" class="form-control" />
-                <span asp-validation-for="Product.SKU" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.ReferenceCode" class="control-label"></label>
-                <input asp-for="Product.ReferenceCode" class="form-control" />
-                <span asp-validation-for="Product.ReferenceCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.Amount" class="control-label"></label>
-                <input asp-for="Product.Amount" class="form-control" />
-                <span asp-validation-for="Product.Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Product.ImageUrl" class="control-label"></label>
-                <input asp-for="Product.ImageUrl" class="form-control" />
-                <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
+
+<style>
+
+    html, body, ul, li, p {
+        margin: 0;
+        padding: 0;
+        background: rgba(207, 207, 207, 0.35);
+        box-sizing: border-box;
+        list-style: none;
+        font-family: "Roboto", sans-serif;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 3.25fr 3.25fr;
+        grid-template-rows: 20vh 40vh 40vh;
+        grid-template-areas:
+            "l cb cb"
+            "s t1 t2"
+            "s t3 t4";
+    }
+
+    .logo {
+        line-height: 30vh;
+        box-sizing: border-box;
+        grid-area: l;
+        background-color: white;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .sidebar {
+        line-height: 10vh;
+        grid-area: s;
+        background: white;
+        text-align: start;
+    }
+
+        .sidebar a {
+            margin-top: 20px;
+            color: #777777;
+            display: flex;
+            padding-inline-start: 10px;
+            text-decoration: none;
+            align-items: center;
+            transition: 1s;
+        }
+
+            .sidebar a:hover {
+                background: #45B63B;
+                color: white;
+            }
+
+    .cabecalho {
+        grid-area: cb;
+    }
+
+    .corpo {
+        grid-area: cp;
+        background: #A6D962;
+    }
+
+    .fnt-cbc {
+        font-size: 48px;
+        color: #777777;
+        padding-left: 20px;
+    }
+
+    .tab1 {
+        border-radius: 15px 15px 15px 15px;
+        background: white;
+        padding: 20px;
+        margin: 1% 1% 1% 1%;
+    }
+
+    .tab2 {
+        border-radius: 15px 15px 15px 15px;
+        background: white;
+        padding: 20px;
+        margin: 1% 1% 1% 1%;
+    }
+
+    .tab3 {
+        border-radius: 15px 15px 15px 15px;
+        background: white;
+        padding: 20px;
+        margin: 1% 1% 1% 1%;
+    }
+
+    .tab4 {
+        border-radius: 15px 15px 15px 15px;
+        background: white;
+        padding: 20px;
+        margin: 1% 1% 1% 1%;
+    }
+
+
+</style>
