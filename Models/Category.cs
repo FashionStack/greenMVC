@@ -11,13 +11,13 @@ namespace GreenMVC.Models
     {
         public int CategoryId { get; set; }
         [Required]
-        [DisplayName("Nome")]
+        [DisplayName("Nome da categoria")]
         public string Name { get; set; }
         [Required]
-        [DisplayName("Tamanho do Tipo")]
+        [DisplayName("Qual tipo de tamanho ?")]
         public char SizeType { get; set; }
         [Required]
-        [DisplayName("Status")]
+        [DisplayName("Essa roupa e sustentavel ? ")]
         public bool Status { get; set; }
         public List<Product> Product { get; set; }
     }
