@@ -1,56 +1,39 @@
-﻿
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html lang="pt-br">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - StockWeb</title>
+    <title>@ViewData["Title"] - GreenStock</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+    <link rel="stylesheet" href="~/css/layout.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-2">
-                    <img  src="https://images-ext-1.discordapp.net/external/zzfHnMN389kh3kIK3U-k4SAuuzwwN8NrDZ5unyhMbSw/https/raw.githubusercontent.com/FashionStack/DataBase/main/GreenStock.png?width=400&height=135"class="img-fluid" alt="Logo GreenStock">
-         
-                    <div class="sidebar col-sm-2">
-                        <ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" style="display: inline" asp-page="/Index"><span class="material-icons">dashboard</span>Dashboard</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" style="display: inline" asp-page="/ProductPages/Index"><span class="material-icons">local_offer</span>Produtos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" style="display: inline" asp-page="/ProductPages/Create"><span class="material-icons">add_box</span>Novo Produto</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" style="display: inline" asp-page="/CategoryPages/Index"><span class="material-icons">category</span>Categorias</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-page="/Privacy">FashionStack</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-sm-10">
-                    <main role="main" class="col-sm-10">
-                        @RenderBody()
-                    </main>
-                </div>
+
+    <div class="d-flex" id="wrapper">
+        <div class="border-end bg-white" id="sidebar-wrapper">
+            <div class="sidebar-heading border-bottom bg-light">
+                <img src="https://images-ext-1.discordapp.net/external/zzfHnMN389kh3kIK3U-k4SAuuzwwN8NrDZ5unyhMbSw/https/raw.githubusercontent.com/FashionStack/DataBase/main/GreenStock.png?width=240&height=90" class="img-fluid" alt="Logo GreenStock">
+            </div>
+            <div class="list-group list-group-flush">
+                <a class="list-group-item list-group-item-action list-group-item-light p-4" asp-page="/Index"><span class="material-icons">dashboard</span>Dashboard</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-4" asp-page="/ProductPages/Index"><span class="material-icons">local_offer</span>Produtos</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-4" asp-page="/ProductPages/Create"><span class="material-icons">add_box</span>Novo Produto</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-4" asp-page="/CategoryPages/Index"><span class="material-icons">category</span>Categorias</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-4" asp-page="/Privacy">FashionStack</a>
             </div>
         </div>
-    </header>
 
+        <nav>
+            <button type="button" class="btn btn-dark" id="sidebarToggle"><span class="material-icons-outlined">Menu</span></button>
+        </nav>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - StockWeb - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        <div class="container-fluid">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
-    </footer>
+    </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
