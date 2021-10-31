@@ -10,13 +10,23 @@ using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace GreenMVC.Pages.ProductPages
 {
     public class IndexModel : PageModel
     {
-        public List<Product> Product { get; private set; }
-        string baseUrl = "https://localhost:44356/";
+        private IConfiguration Configuration;
+        public IndexModel(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        [BindProperty]
+        public List<Product> Product { get; set; }
+
+        string baseUrl => Configuration.GetConnectionString("ApiUrl");
+
         public async Task OnGetAsync()
         {
             using (var client = new HttpClient())

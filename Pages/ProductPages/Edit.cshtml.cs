@@ -12,15 +12,23 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace GreenMVC.Pages.ProductPages
 {
     public class EditModel : PageModel
     {
+        private IConfiguration Configuration;
+        public EditModel(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         [BindProperty]
-       
         public Product Product { get; set; }
-        string baseUrl = "https://localhost:44369/";
+
+        string baseUrl => Configuration.GetConnectionString("ApiUrl");
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

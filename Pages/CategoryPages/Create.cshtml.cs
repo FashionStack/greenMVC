@@ -10,15 +10,23 @@ using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace GreenMVC.Pages.CategoryPages
 {
     public class CreateModel : PageModel
     {
+        private IConfiguration Configuration;
+        public CreateModel(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         [BindProperty]
         public Category Category { get; set; }
 
-        string baseUrl = "https://localhost:44356/";
+        string baseUrl => Configuration.GetConnectionString("ApiUrl");
+
         public async Task<IActionResult> OnPostAsync()
         {
             using (var client = new HttpClient())
