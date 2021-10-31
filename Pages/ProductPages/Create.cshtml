@@ -10,49 +10,85 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+
 <h1 class="text-center">Adicionar novo produto</h1>
+<link href="~/css/productCreate.css" rel="stylesheet" />
 <hr />
 
 <form method="post">
-    <div class="form-group">
-        <input type="submit" value="Create" class="btn btn-primary" />
+    <div>
+        <button class="save" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
     </div>
     <div class="row">
         <div class="col-md-12">
             <div class="form-group">
-                <label for="nome" class="control-label">Nome</label>
-                <input type="text" class="form-control" id="nome" name="Nome" />
+                <label for="Name" class="control-label">Nome: </label>
+                <input type="text" class="form-control" id="Name" name="Name" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group form-check">
+                <label label class="toggle" for="Tag">Material Sustentável</label>
+                <input type="checkbox" class="toggle_input" id="Tag" name="Tag" required>
+            </div>
+        </div>
+        <div class="col-md-6 category">
+            <div class="form-group">
+                <label for="listbox1" class="control-label" aria-label="Selecione a categoria">Categoria: </label>
+                <select id="listbox1" name="Category" class="row">
+                    <option aria-selected="true" default value="">Selecione</option>
+                    <option aria-selected="false" value="1">Camisa</option>
+                    <option aria-selected="false" value="2">Vestido</option>
+                    <option aria-selected="false" value="3">Regata</option>
+                    <option aria-selected="false" value="4">Saia</option>
+                    <option aria-selected="false" value="5">Short</option>
+                    <option aria-selected="false" value="6">Calça</option>
+                    <option aria-selected="false" value="7">Jaqueta</option>
+                    <option aria-selected="false" value="8">Biquini</option>
+                    <option aria-selected="false" value="9">Sunga</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Size" class="control-label">Tamanho: </label>
+                <input type="text" class="form-control" id="Size" name="Size">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="poderes" class="control-label">Categoria</label>
-                <input type="text" class="form-control" id="categoryId" name="Categoria" />
+                <label for="Amount" class="control-label">Quantidade: </label>
+                <input type="text" class="form-control" id="Amount" name="Amount">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="Ref" class="control-label">REF: </label>
+                <input type="text" class="form-control" id="Ref" name="Ref">
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <label for="peso" class="control-label">Tamanho</label>
-                <input type="text" class="form-control" id="size" name="Tamanho" />
+                <label for="Sku" class="control-label">SKU: </label>
+                <input type="text" class="form-control" id="Sku" name="Sku">
             </div>
         </div>
-        <div class="col-md-6">
+    </div>
+    <div class="row">
+        <div class="col-md-12">
             <div class="form-group">
-                <label for="altura" class="control-label">SKU</label>
-                <input type="text" class="form-control" id="sku" name="SKU" />
+                <label for="Image" class="control-label">URL da Imagem: </label>
+                <input type="text" class="form-control" id="Image" name="Image">
             </div>
         </div>
-        <div class="col-md-6">
-            <div class="form-group">
-                <label for="tipo" class="control-label">REF</label>
-                <input type="text" class="form-control" id="ReferenceCode" name="REF" />
-            </div>
-        </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="image" class="control-label">Imagem</label>
-                    <input type="text" class="form-control" id="imageUrl" name="Imagem do produto" />
-                </div>
-            </div>
-        </div>
+    </div>
 </form>
+<div class="product-img">
+    <img src="IMGTeste.png" alt="Imagem do produto adicionado">
+</div>
