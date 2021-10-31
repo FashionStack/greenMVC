@@ -9,16 +9,16 @@ namespace GreenMVC.Models
 {
     public class Category
     {
+        [DisplayName("ID da Categoria")]
         public int CategoryId { get; set; }
-        [Required]
-        [DisplayName("Nome da categoria")]
+
+        [DisplayName("Nome")]
         public string Name { get; set; }
-        [Required]
-        [DisplayName("Qual tipo de tamanho ?")]
+
+        [DisplayName("Tipo do Tamanho")]
         public char SizeType { get; set; }
-        [Required]
-        [DisplayName("Essa roupa e sustentavel ? ")]
+
+        [DisplayName("Ativo")]
         public bool Status { get; set; }
-        public List<Product> Product { get; set; }
     }
 }

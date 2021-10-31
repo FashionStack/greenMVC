@@ -9,24 +9,31 @@ namespace GreenMVC.Models
 {
     public class Product
     {
-        public int ProductId { get; set; }
+        [DisplayName("ID do Produto")]
+        public long ProductId { get; set; }
+
+        [DisplayName("Categoria")]
         public Category Category { get; set; }
 
-        [Required]
+        [DisplayName("ID da Categoria")]
+        public int CategoryId { get; set; }
+
         [DisplayName("Nome")]
         public string Name { get; set; }
-        [Required]
+
         [DisplayName("Tamanho")]
         public string Size { get; set; }
-        [Required]
+
         [DisplayName("SKU")]
         public string SKU { get; set; }
-        [Required]
-        [DisplayName("Código Referencia")]
+
+        [DisplayName("Código Referência")]
         public string ReferenceCode { get; set; }
-        [Required]
+
         [DisplayName("Quantidade")]
         public int Amount { get; set; }
+
+        [DisplayName("URL da Imagem")]
         public string ImageUrl { get; set; }
     }
 }

@@ -10,104 +10,49 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<h1 class="text-center">Adicionar novo produto</h1>
+<hr />
 
-
-<style>
-
-    html, body, ul, li, p {
-        margin: 0;
-        padding: 0;
-        background: rgba(207, 207, 207, 0.35);
-        box-sizing: border-box;
-        list-style: none;
-        font-family: "Roboto", sans-serif;
-    }
-
-    .container {
-        display: grid;
-        grid-template-columns: 1fr 3.25fr 3.25fr;
-        grid-template-rows: 20vh 40vh 40vh;
-        grid-template-areas:
-            "l cb cb"
-            "s t1 t2"
-            "s t3 t4";
-    }
-
-    .logo {
-        line-height: 30vh;
-        box-sizing: border-box;
-        grid-area: l;
-        background-color: white;
-    }
-
-    img {
-        max-width: 100%;
-    }
-
-    .sidebar {
-        line-height: 10vh;
-        grid-area: s;
-        background: white;
-        text-align: start;
-    }
-
-        .sidebar a {
-            margin-top: 20px;
-            color: #777777;
-            display: flex;
-            padding-inline-start: 10px;
-            text-decoration: none;
-            align-items: center;
-            transition: 1s;
-        }
-
-            .sidebar a:hover {
-                background: #45B63B;
-                color: white;
-            }
-
-    .cabecalho {
-        grid-area: cb;
-    }
-
-    .corpo {
-        grid-area: cp;
-        background: #A6D962;
-    }
-
-    .fnt-cbc {
-        font-size: 48px;
-        color: #777777;
-        padding-left: 20px;
-    }
-
-    .tab1 {
-        border-radius: 15px 15px 15px 15px;
-        background: white;
-        padding: 20px;
-        margin: 1% 1% 1% 1%;
-    }
-
-    .tab2 {
-        border-radius: 15px 15px 15px 15px;
-        background: white;
-        padding: 20px;
-        margin: 1% 1% 1% 1%;
-    }
-
-    .tab3 {
-        border-radius: 15px 15px 15px 15px;
-        background: white;
-        padding: 20px;
-        margin: 1% 1% 1% 1%;
-    }
-
-    .tab4 {
-        border-radius: 15px 15px 15px 15px;
-        background: white;
-        padding: 20px;
-        margin: 1% 1% 1% 1%;
-    }
-
-
-</style>
+<form method="post">
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="nome" class="control-label">Nome</label>
+                <input type="text" class="form-control" id="nome" name="Nome" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="poderes" class="control-label">Categoria</label>
+                <input type="text" class="form-control" id="categoryId" name="Categoria" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="peso" class="control-label">Tamanho</label>
+                <input type="text" class="form-control" id="size" name="Tamanho" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="altura" class="control-label">SKU</label>
+                <input type="text" class="form-control" id="sku" name="SKU" />
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="tipo" class="control-label">REF</label>
+                <input type="text" class="form-control" id="ReferenceCode" name="REF" />
+            </div>
+        </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="image" class="control-label">Imagem</label>
+                    <input type="text" class="form-control" id="imageUrl" name="Imagem do produto" />
+                </div>
+            </div>
+        </div>
+</form>
