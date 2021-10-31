@@ -34,7 +34,7 @@ namespace GreenMVC.Pages.ProductPages
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = await client.GetAsync("api/Product/" + id);
+                HttpResponseMessage response = await client.GetAsync("api/Products/" + id);
 
                 if (response.IsSuccessStatusCode)
                 {
