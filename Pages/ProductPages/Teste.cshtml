@@ -1,0 +1,52 @@
+﻿@page
+@model GreenMVC.Pages.ProductPages.TextModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<h3 class="name-page"> Produtos </h3>
+<form action="#" method="post" class="search">
+    <input type="text" name="search" class="search-input" placeholder="Pesquisar" required />
+    <button type="submit" class="lupa"><span class="material-icons">search</span></button>
+</form>
+
+<div class="table-responsive">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].ReferenceCode)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Size)</th>
+                <th scope="col">@Html.DisplayNameFor(Model => Model.Product[0].Amount)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Product) {
+            <tr class="table-light">
+                <th scope="row"><img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" alt="@Html.DisplayFor(modelItem => item.Name)" /></th>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.ReferenceCode)</td>
+                <td>@Html.DisplayFor(modelItem => item.Size)</td>
+                <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                <td>
+                    <a asp-page="./Details" asp-route-id="@item.ProductId" style="text-decoration:none">
+                        <button type="button" class="btn btn-secondary" onclick="">
+                            <span class="material-icons">edit</span>
+                            Detalhes
+                        </button>
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.ProductId" style="text-decoration:none">
+                        <button type="button" class="btn btn-danger">
+                            <span class="material-icons">delete</span>
+                            Deletar
+                        </button>
+                    </a>
+                </td>
+            </tr>
+
+            }
+
+        </tbody>
+    </table>j
+</div>
