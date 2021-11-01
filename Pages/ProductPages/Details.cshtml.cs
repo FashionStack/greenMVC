@@ -10,13 +10,23 @@ using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using Newtonsoft.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace GreenMVC.Pages.ProductPages
 {
     public class DetailsModel : PageModel
     {
+        private IConfiguration Configuration;
+        public DetailsModel(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
+        [BindProperty]
         public Product Product { get; set; }
-        string baseUrl = "https://localhost:44356/";
+
+        string baseUrl => Configuration.GetConnectionString("ApiUrl");
+
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)

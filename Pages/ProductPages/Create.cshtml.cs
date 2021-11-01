@@ -10,15 +10,27 @@ using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace GreenMVC.Pages.ProductPages
 {
     public class CreateModel : PageModel
     {
+        private IConfiguration Configuration;
+        public CreateModel(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         [BindProperty]
         public Product Product { get; set; }
 
-        string baseUrl = "https://localhost:44356/";
+        [BindProperty]
+        public List<Category> Category { get; set; }
+
+        string baseUrl => Configuration.GetConnectionString("ApiUrl");
+
         public async Task<IActionResult> OnPostAsync()
         {
             using (var client = new HttpClient())
@@ -38,6 +50,24 @@ namespace GreenMVC.Pages.ProductPages
                 else
                 {
                     return RedirectToPage("./Create");
+                }
+            }
+        }
+
+        public async Task OnGetAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Categories");
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    Category = JsonConvert.DeserializeObject<List<Category>>(result);
                 }
             }
         }
