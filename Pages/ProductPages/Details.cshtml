@@ -1,72 +1,112 @@
 @page
 @model GreenMVC.Pages.ProductPages.DetailsModel
 
+
 @{
     ViewData["Title"] = "Details";
 }
 
-<h1>Detalhes do Produto</h1>
+<h1 class="text-center">Detalhes do Produto</h1>
+<div class="row">
+    <div class="col-md-12 col-lg-9">
+        <div class="card-create">
+            <form method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="name" class="control-label">Nome </label>
+                            <h4>
+                                @Html.DisplayFor(model => model.Product.Name)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label for="sustainable" class="control-label">Material Sustentável </label>
+                            <div>
 
-<div>
-    <div>
-        <a class="btn btn-danger" asp-page="./Edit" asp-route-id="@Model.Product.ProductId">Edit</a> |
-        <a class="btn btn-dark" asp-page="./Index">Back to List</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 category">
+                        <div class="form-group">
+                            <label for="listbox1" class="control-label" aria-label="Selecione a categoria">Categoria </label>
+                             <h4>
+                                 @Html.DisplayFor(model => model.Product.Category)
+                             </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="size" class="control-label">Tamanho </label>
+                            <h4>
+                                @Html.DisplayFor(model => model.Product.Size)
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="amount" class="control-label">Quantidade </label>
+                            <h4>
+                                @Html.DisplayFor(model => model.Product.Amount)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="referenceCode" class="control-label">REF </label>
+                            <h4>
+                                @Html.DisplayFor(model => model.Product.ReferenceCode)
+                            </h4>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="sku" class="control-label">SKU </label>
+                            <h4>
+                                @Html.DisplayFor(model => model.Product.SKU)
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="imageUrl" class="control-label">URL da Imagem </label>
+                            <img class="product-img" src="@Html.DisplayFor(model => model.Product.ImageUrl)" />
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="btn-save" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
+                </div>
+                <div>
+                    <button class="btn-edit" type="submit" aria-label="salvar"><span class="material-icons">save</span>pencil</button>
+                </div>
+                <div>
+                    <a class="btn btn-danger" asp-page="./Edit" asp-route-id="@Model.Product.ProductId">Edit</a> |
+                    <a class="btn btn-dark" asp-page="./Index">Back to List</a>
+                </div>
+            </form>
+        </div>
     </div>
-
-    <div class="row">
-        <div class="col-md-12">
-            <h4>
-                @Html.DisplayNameFor(model => model.Product.Name)
-            </h4>
-            <h4>
-                @Html.DisplayFor(model => model.Product.Name)
-            </h4>
+    <div class="col-md-12 col-lg-3">
+        <div class="product-img">
+            <img id="product-image" src="" onerror="adjustImage()" aria-label="Imagem do produto adicionado">
+            <span id="tagImage" class="material-icons">sell</span>
         </div>
-        <div class="col-md-6">
-            <h4>
-                @Html.DisplayNameFor(model => model.Product.Category) :
-
-               
-            </h4>
-            <h4>
-                @Html.DisplayFor(model => model.Product.Category)
-            </h4>
-        </div>
-   
-        <div class="col-md-6">
-            <h4>
-                @Html.DisplayNameFor(model => model.Product.Size) :
-
-               
-            </h4>
-            <h4>
-                @Html.DisplayFor(model => model.Product.Size)
-            </h4>
-        </div>
-        
-        <div class="col-md-6">
-            <h4>
-                @Html.DisplayNameFor(model => model.Product.SKU) :
-
-            </h4>
-            <h4>
-                @Html.DisplayFor(model => model.Product.SKU)
-            </h4>
-        </div>
-        <div class="col-md-6">
-            <h4>
-                @Html.DisplayNameFor(model => model.Product.Amount) :
-            </h4>
-            <h4>
-                @Html.DisplayFor(model => model.Product.Amount)
-            </h4>
-        </div>
-        <div class="col-sm-12">
-            <h3>
-                @Html.DisplayNameFor(model => model.Product.ImageUrl) :
-            </h3>
-            <img src="@Html.DisplayFor(model => model.Product.ImageUrl)"/>
-        </div>
+    </div>
 </div>
 
-</div>
+<script>
+    function adjustImage() {
+        $("#product-image").hide();
+        $("#tagImage").show();
+    }
+</script>
