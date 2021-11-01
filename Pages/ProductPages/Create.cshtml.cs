@@ -11,6 +11,7 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Net.Http.Json;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
 
 namespace GreenMVC.Pages.ProductPages
 {
@@ -24,6 +25,9 @@ namespace GreenMVC.Pages.ProductPages
 
         [BindProperty]
         public Product Product { get; set; }
+
+        [BindProperty]
+        public List<Category> Category { get; set; }
 
         string baseUrl => Configuration.GetConnectionString("ApiUrl");
 
@@ -46,6 +50,24 @@ namespace GreenMVC.Pages.ProductPages
                 else
                 {
                     return RedirectToPage("./Create");
+                }
+            }
+        }
+
+        public async Task OnGetAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Categories");
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    Category = JsonConvert.DeserializeObject<List<Category>>(result);
                 }
             }
         }
