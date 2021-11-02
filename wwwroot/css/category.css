@@ -1,10 +1,4 @@
-/*  Pagina de Produtos  */
-#principal {
-   
-   
-   
-   
-}
+/*  Pagina de listar Categorias   */
 
 .item1 {
     background: white;
@@ -48,7 +42,8 @@ p {
     border-radius: 5px;
     margin-right: 35px;
     height: 26px;
-    width:105px;
+    width: 105px;
+    text-decoration-line: none !important;
 }
 .bt-dl {
     background-color: #F64B4B;
@@ -57,8 +52,27 @@ p {
     height: 28px;
     width: 107px;
     text-decoration-line: blink;
+    align-items:center;
 }
 a:hover {
     color: white !important;
     text-decoration-line: blink !important;
+}
+/*  Pagina de deletar Categorias   */
+.line-category {
+    align-items: center;
+    height: 110px;
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 10px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+.bt-back1 {
+    color:aliceblue;
+    display: inline-flex;
+    margin-top: -8px;
+    margin-left: 5px;
+    align-items: center;
+    text-decoration-line: none;
 }
