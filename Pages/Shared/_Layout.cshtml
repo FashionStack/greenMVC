@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/layout.css" />
     <link rel="stylesheet" href="~/css/Products.css" />
-    <link href="~/css/productCreate.css"/>
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/productCreate.css"/>
+    <link rel="stylesheet" href="~/css/site.css"/>
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -28,14 +28,20 @@
             </div>
         </div>
         
-        <div class="container-fluid">
+        <div id="page-content-wrapper">
             <nav class="navbar-expand-lg navbar-light bg-light">
-                <button type="button" class="navbar-toggler" id="sidebarToggle" style="position: absolute;"><span class="navbar-toggler-icon"></span></button>
+                <div class="container-fluid">
+                    <button type="button" class="navbar-toggler" id="sidebarToggle"><span class="navbar-toggler-icon"></span></button>
+                </div>
             </nav>
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+
+            <div class="container-fluid">
+                <main role="main" class="pb-3">
+                    @RenderBody()
+                </main>
+            </div>
         </div>
+       
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
