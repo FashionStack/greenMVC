@@ -21,7 +21,10 @@
                 <div class="col-md-6 form-group">
                     <label for="sustainable" class="control-label">Material Sustent&aacute;vel</label>
                     <div>
-                        <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
+                        <label class="form-switch">
+                            <input type="checkbox" id="sustainable" name="Sustainable" @Html.Raw(Model.Product.Sustainable ? "checked" : "") disabled>
+                            <i></i>
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6 category form-group">
