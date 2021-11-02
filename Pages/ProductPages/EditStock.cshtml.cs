@@ -1,35 +1,31 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
 using GreenMVC.Context;
 using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
 using System.Net.Http.Json;
 using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+
 
 namespace GreenMVC.Pages.ProductPages
 {
-    public class EditModel : PageModel
+    public class EditStockModel : PageModel
     {
         private IConfiguration Configuration;
-        public EditModel(IConfiguration configuration)
+        public EditStockModel(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
         [BindProperty]
         public Product Product { get; set; }
-
-        [BindProperty]
-        public List<Category> Categories { get; set; }
-
         string baseUrl => Configuration.GetConnectionString("ApiUrl");
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -45,20 +41,12 @@ namespace GreenMVC.Pages.ProductPages
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage productsResponse = await client.GetAsync("api/Products/" + id);
+                HttpResponseMessage response = await client.GetAsync("api/Products/" + id);
 
-                if (productsResponse.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode)
                 {
-                    string result = productsResponse.Content.ReadAsStringAsync().Result;
+                    string result = response.Content.ReadAsStringAsync().Result;
                     Product = JsonConvert.DeserializeObject<Product>(result);
-                }
-
-                HttpResponseMessage categoriesResponse = await client.GetAsync("api/Categories");
-
-                if (categoriesResponse.IsSuccessStatusCode)
-                {
-                    string result = categoriesResponse.Content.ReadAsStringAsync().Result;
-                    Categories = JsonConvert.DeserializeObject<List<Category>>(result);
                 }
             }
 
@@ -74,14 +62,16 @@ namespace GreenMVC.Pages.ProductPages
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = await client
-                    .PutAsJsonAsync("api/Products/" + Product.ProductId, Product);
+                    .PostAsJsonAsync("api/Products", Product);
+
                 if (response.IsSuccessStatusCode)
                 {
+                    //Produtos/Index
                     return RedirectToPage("./Index");
                 }
                 else
                 {
-                    return Page();
+                    return RedirectToPage("./Create");
                 }
             }
         }

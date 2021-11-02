@@ -2,11 +2,12 @@
 @model GreenMVC.Pages.ProductPages.EditModel
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar Produto";
 }
 
-<h4>Editar Produto</h4>
-<hr />
+<div class="title-pages">
+    @ViewData["title"]
+</div>
 <div class="row">
     <div class="col-md-12 col-lg-9">
         <div class="card-create">
@@ -16,16 +17,19 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label asp-for="Product.Name" for="name" class="control-label">Nome </label>
-                            <input type="text" class="form-control" id="name" name="name" maxlength="100" required value="@Model.Product">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="100" required value="@Model.Product.Name">
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div>
-                            <label for="sustainable" class="control-label">Material Sustentável </label>
+                            <label for="sustainable" class="control-label">Material Sustentável</label>
                             <div>
-                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
+                                <label class="form-switch">
+                                    <input type="checkbox" id="sustainable" name="Sustainable" value="@(Model.Product.Sustainable ? "true" : "false")">
+                                    <i></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -42,86 +46,87 @@
                         </div>
                     </div>
                 </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Product.Size" for="size" class="control-label">Tamanho </label>
-                    <select class="size" id="size" name="size">
-                        <option aria-selected="true" default value="@Html.DisplayFor(model => Model.Product.Size)">@Html.DisplayFor(model => Model.Product.Size)</option>
-                        <option value="PP">PP</option>
-                        <option value="P">P</option>
-                        <option value="M">M</option>
-                        <option value="G">G</option>
-                        <option value="GG">GG</option>
-                        <option value="GG1">GG1</option>
-                        <option value="GG2">GG2</option>
-                        <option value="GG3">GG3</option>
-                        <option value="0-3M">0 a 3 meses</option>
-                        <option value="4-7M">4 a 7 meses</option>
-                        <option value="8-12M">8 a 12 meses</option>
-                        <option value="1">1 ano</option>
-                        <option value="2">2 anos</option>
-                        <option value="3">3 anos</option>
-                        <option value="4">4 anos</option>
-                        <option value="5">5 anos</option>
-                        <option value="6">6 anos</option>
-                        <option value="7">7 anos</option>
-                        <option value="8">8 anos</option>
-                        <option value="9">9 anos</option>
-                        <option value="10">10 anos</option>
-                        <option value="12">12 anos</option>
-                        <option value="14">14 anos</option>
-                        <option value="16">16 anos</option>
-                        <option value="34">34</option>
-                        <option value="36">36</option>
-                        <option value="38">38</option>
-                        <option value="40">40</option>
-                        <option value="42">42</option>
-                        <option value="44">44</option>
-                        <option value="46">46</option>
-                    </select>
-                    <!--<input asp-for="Product.Size" type="text" class="form-control" id="size" name="size" maxlength="5" required>-->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Product.Size" for="size" class="control-label">Tamanho</label>
+                            <select class="size" id="size" name="size">
+                                <option aria-selected="true" default value="@Html.DisplayFor(model => Model.Product.Size)">@Html.DisplayFor(model => Model.Product.Size)</option>
+                                <option value="PP">PP</option>
+                                <option value="P">P</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                                <option value="GG1">GG1</option>
+                                <option value="GG2">GG2</option>
+                                <option value="GG3">GG3</option>
+                                <option value="0-3M">0 a 3 meses</option>
+                                <option value="4-7M">4 a 7 meses</option>
+                                <option value="8-12M">8 a 12 meses</option>
+                                <option value="1">1 ano</option>
+                                <option value="2">2 anos</option>
+                                <option value="3">3 anos</option>
+                                <option value="4">4 anos</option>
+                                <option value="5">5 anos</option>
+                                <option value="6">6 anos</option>
+                                <option value="7">7 anos</option>
+                                <option value="8">8 anos</option>
+                                <option value="9">9 anos</option>
+                                <option value="10">10 anos</option>
+                                <option value="12">12 anos</option>
+                                <option value="14">14 anos</option>
+                                <option value="16">16 anos</option>
+                                <option value="34">34</option>
+                                <option value="36">36</option>
+                                <option value="38">38</option>
+                                <option value="40">40</option>
+                                <option value="42">42</option>
+                                <option value="44">44</option>
+                                <option value="46">46</option>
+                            </select>
+                            <!--<input asp-for="Product.Size" type="text" class="form-control" id="size" name="size" maxlength="5" required>-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Product.Amount" for="amount" class="control-label">Quantidade </label>
+                            <input asp-for="Product.Amount" type="number" class="form-control" id="amount" name="amount" min="0" step="1" required>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Product.Amount" for="amount" class="control-label">Quantidade </label>
-                    <input asp-for="Product.Amount" type="number" class="form-control" id="amount" name="amount" min="0" step="1" required>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Product.ReferenceCode" for="referenceCode" class="control-label">REF </label>
+                            <input asp-for="Product.ReferenceCode" type="text" class="form-control" id="referenceCode" name="referenceCode" maxlength="50" required>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label asp-for="Product.SKU" for="sku" class="control-label">SKU </label>
+                            <input asp-for="Product.SKU" type="text" class="form-control" id="sku" name="sku" maxlength="50" required>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Product.ImageUrl" for="imageUrl" class="control-label">URL da Imagem </label>
+                            <input asp-for="Product.ImageUrl" type="text" class="form-control" id="imageUrl" name="imageUrl" maxlength="250">
+                        </div>
+                    </div>
+                </div>
+                <div class="generic-btn-box">
+                    <a class="btn btn-generic m-0"
+                       asp-page="/ProductPages/Details"
+                       asp-route-id="@Model.Product.ProductId">
+                        <span class="material-icons">arrow_back</span>
+                        <span class="back">Voltar</span>
+                    </a>
+                    <button class="btn-save m-0" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
+                </div>
+            </form>
         </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Product.ReferenceCode" for="referenceCode" class="control-label">REF </label>
-                    <input asp-for="Product.ReferenceCode" type="text" class="form-control" id="referenceCode" name="referenceCode" maxlength="50" required>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label asp-for="Product.SKU" for="sku" class="control-label">SKU </label>
-                    <input asp-for="Product.SKU" type="text" class="form-control" id="sku" name="sku" maxlength="50" required>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="form-group">
-                    <label asp-for="Product.ImageUrl" for="imageUrl" class="control-label">URL da Imagem </label>
-                    <input asp-for="Product.ImageUrl" type="text" class="form-control" id="imageUrl" name="imageUrl" maxlength="250">
-                </div>
-            </div>
-        </div>
-        <div class="generic-btn-box">
-            <a class="btn btn-generic m-0"
-               asp-page="/ProductPages/Details"
-               asp-route-id="@Model.Product.ProductId"><span class="material-icons">arrow_back</span>
-               <span class="back">Voltar</span>
-            </a>
-            <button class="btn-save m-0" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
-        </div>
-        </form>
-    </div>
     </div>
     <div class="col-md-12 col-lg-3">
         <div class="product-img">
@@ -130,3 +135,10 @@
         </div>
     </div>
 </div>
+<script>
+    checkboxFix();
+</script>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

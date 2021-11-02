@@ -3,11 +3,12 @@
 
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalhes do Produto";
 }
 
-<h1 class="text-center">Detalhes do Produto</h1>
-<hr />
+<div class="title-pages">
+    @ViewData["title"]
+</div>
 <div class="row">
     <div class="col-md-12 col-lg-9">
         <div class="card-create">
@@ -21,7 +22,10 @@
                 <div class="col-md-6 form-group">
                     <label for="sustainable" class="control-label">Material Sustent&aacute;vel</label>
                     <div>
-                        <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
+                        <label class="form-switch">
+                            <input type="checkbox" id="sustainable" name="Sustainable" @Html.Raw(Model.Product.Sustainable ? "checked" : "") disabled>
+                            <i></i>
+                        </label>
                     </div>
                 </div>
                 <div class="col-md-6 category form-group">

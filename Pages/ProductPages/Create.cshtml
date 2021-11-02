@@ -2,7 +2,7 @@
 @model GreenMVC.Pages.ProductPages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar Produto";
 }
 
 
@@ -11,8 +11,9 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<h1 class="text-center">Adicionar novo produto</h1>
-<hr />
+<div class="title-pages">
+    @ViewData["title"]
+</div>
 <div class="row">
     <div class="col-md-12 col-lg-9">
         <div class="card-create">
@@ -30,7 +31,10 @@
                         <div>
                             <label for="sustainable" class="control-label">Material Sustentável</label>
                             <div>
-                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
+                                <label class="form-switch">
+                                    <input type="checkbox" id="sustainable" name="Sustainable" value="">
+                                    <i></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -53,37 +57,37 @@
                             <label for="size" class="control-label" aria-label="Selecione o tamanho">Tamanho </label>
                             <select class="size" id="size" name="size">
                                 <option aria-selected="true" value="">Selecione</option>
-                                <option aria-selected="false" default value="PP">PP</option>
-                                <option aria-selected="false" default value="P">P</option>
-                                <option aria-selected="false" default value="M">M</option>
-                                <option aria-selected="false" default value="G">G</option>
-                                <option aria-selected="false" default value="GG">GG</option>
-                                <option aria-selected="false" default value="GG1">GG1</option>
-                                <option aria-selected="false" default value="GG2">GG2</option>
-                                <option aria-selected="false" default value="GG3">GG3</option>
-                                <option aria-selected="false" default value="0-3M">0 a 3 meses</option>
-                                <option aria-selected="false" default value="4-7M">4 a 7 meses</option>
-                                <option aria-selected="false" default value="8-12M">8 a 12 meses</option>
-                                <option aria-selected="false" default value="1">1 ano</option>
-                                <option aria-selected="false" default value="2">2 anos</option>
-                                <option aria-selected="false" default value="3">3 anos</option>
-                                <option aria-selected="false" default value="4">4 anos</option>
-                                <option aria-selected="false" default value="5">5 anos</option>
-                                <option aria-selected="false" default value="6">6 anos</option>
-                                <option aria-selected="false" default value="7">7 anos</option>
-                                <option aria-selected="false" default value="8">8 anos</option>
-                                <option aria-selected="false" default value="9">9 anos</option>
-                                <option aria-selected="false" default value="10">10 anos</option>
-                                <option aria-selected="false" default value="12">12 anos</option>
-                                <option aria-selected="false" default value="14">14 anos</option>
-                                <option aria-selected="false" default value="16">16 anos</option>
-                                <option aria-selected="false" default value="34">34</option>
-                                <option aria-selected="false" default value="36">36</option>
-                                <option aria-selected="false" default value="38">38</option>
-                                <option aria-selected="false" default value="40">40</option>
-                                <option aria-selected="false" default value="42">42</option>
-                                <option aria-selected="false" default value="44">44</option>
-                                <option aria-selected="false" default value="46">46</option>
+                                <option value="PP">PP</option>
+                                <option value="P">P</option>
+                                <option value="M">M</option>
+                                <option value="G">G</option>
+                                <option value="GG">GG</option>
+                                <option value="GG1">GG1</option>
+                                <option value="GG2">GG2</option>
+                                <option value="GG3">GG3</option>
+                                <option value="0-3M">0 a 3 meses</option>
+                                <option value="4-7M">4 a 7 meses</option>
+                                <option value="8-12M">8 a 12 meses</option>
+                                <option value="1">1 ano</option>
+                                <option value="2">2 anos</option>
+                                <option value="3">3 anos</option>
+                                <option value="4">4 anos</option>
+                                <option value="5">5 anos</option>
+                                <option value="6">6 anos</option>
+                                <option value="7">7 anos</option>
+                                <option value="8">8 anos</option>
+                                <option value="9">9 anos</option>
+                                <option value="10">10 anos</option>
+                                <option value="12">12 anos</option>
+                                <option value="14">14 anos</option>
+                                <option value="16">16 anos</option>
+                                <option value="34">34</option>
+                                <option value="36">36</option>
+                                <option value="38">38</option>
+                                <option value="40">40</option>
+                                <option value="42">42</option>
+                                <option value="44">44</option>
+                                <option value="46">46</option>
                             </select>
                         </div>
                     </div>
@@ -97,7 +101,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="referenceCode" class="control-label">REF </label>
+                            <label for="referenceCode" class="control-label">REF</label>
                             <input type="text" class="form-control" id="referenceCode" name="referenceCode" maxlength="50" required>
                         </div>
                     </div>
@@ -129,3 +133,6 @@
         </div>
     </div>
 </div>
+<script>
+    checkboxFix();
+</script>

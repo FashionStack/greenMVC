@@ -1,16 +1,16 @@
 ﻿@page
 @model GreenMVC.Pages.IndexModel
 @{
-    ViewData["title"] = "Home page";
+    ViewData["title"] = "Dashboard";
 }
 
 <div id="dashboard-screen">
-    <div class="title">
-        <h3 class="display-4">Dashboard</h3>
+    <div class="title-pages">
+       @ViewData["title"]
     </div>
     <div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 card-box">
                 <div class="card">
                     <div class="card-title">
                         Quantidade de produtos cadastrados
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 card-box">
                 <div class="card">
                     <div class="card-title">
                         Quantidade de itens em estoque
@@ -32,7 +32,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6">
+            <div class="col-lg-6 card-box">
                 <div class="card">
                     <span class="card-title">
                         Quantidade de itens sustentáveis
@@ -54,7 +54,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-6 card-box">
                 <div class="card">
                     <span class="card-title">
                         Top quantidade de itens por categoria
