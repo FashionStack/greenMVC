@@ -1,12 +1,12 @@
 ﻿@page
 @model GreenMVC.Pages.IndexModel
 @{
-    ViewData["title"] = "Home page";
+    ViewData["title"] = "Dashboard";
 }
 
 <div id="dashboard-screen">
-    <div class="title">
-        <h3 class="display-4">Dashboard</h3>
+    <div class="title-pages">
+       @ViewData["title"]
     </div>
     <div>
         <div class="row">

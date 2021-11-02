@@ -1,0 +1,45 @@
+﻿@page
+@model GreenMVC.Pages.ProductPages.EditStockModel
+@{
+}
+
+@{
+    ViewData["Title"] = "EditStock";
+}
+
+<h1 class="text-center">Gerenciamento de estoque</h1>
+<hr />
+    <div class="col-md-6 col-lg-9 stock-management">
+        <div class="card-create">
+            <form method="post">
+                <div class="row">
+                    <input type="hidden" asp-for="Product.ProductId" />
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="amount" class="control-label">Estoque total: </label>
+                            <h3 id="amount" name="amount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="stock-change" class="control-label">Movimentação de estoque</label>
+                            <div class="d-flex">
+                                @*<a class="stock-change decrement"><span class="material-icons">minimize</span></a>
+        <input type="number" name="amount" />
+        <a class="stock-change increment"><span class="material-icons">add</span></a>*@
+
+                                <div class='ctrl'>
+                                    <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
+                                    <div class='ctrl__counter'>
+                                        <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
+                                        <div class='ctrl__counter-num'>0</div>
+                                    </div>
+                                    <div class='ctrl__button ctrl__button--increment'>+</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

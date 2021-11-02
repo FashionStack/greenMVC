@@ -58,11 +58,13 @@ button.accept-policy {
 html {
     position: relative;
     min-height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 body { /*modified*/
     /* Margin bottom by footer height */
     margin-bottom: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .footer {
@@ -81,6 +83,13 @@ body { /*modified*/
 
 /*------------------Fim-------------------*/
 
+/*------------------Página de Produtos-------------------*/
+.title-pages {
+    font-size: 60px;
+    margin: 20px;
+    color: #777777;
+}
+/*------------------Fim-------------------*/
 .card-create {
     border-radius: 15px 15px 15px 15px;
     background: white;
@@ -202,11 +211,34 @@ select.size, select.category {
     border-radius: 3px;
     margin-left: 0em;
     overflow: hidden;
+    background: no-repeat right white;
     border: 1px solid #ccc;
 }
 
-.title-container {
+.stock-management {
 }
+
+    .stock-management .card-create {
+        width: 425px;
+    }
+
+    .stock-management .card-create input[name=amount] {
+        width: 70px;
+    }
+
+.stock-change {
+}
+
+    .stock-change.decrement {
+    }
+
+        .stock-change.decrement span {
+            position: relative;
+            bottom: 5px;
+        }
+
+    .stock-change.increment {
+    }
 
 #dashboard-screen {
     font-family: Roboto;
