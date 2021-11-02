@@ -15,9 +15,6 @@ namespace GreenMVC.Models
         [DisplayName("Nome")]
         public string Name { get; set; }
 
-        [DisplayName("Tipo do Tamanho")]
-        public char SizeType { get; set; }
-
         [DisplayName("Ativo")]
         public bool Status { get; set; }
     }

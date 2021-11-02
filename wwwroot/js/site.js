@@ -11,3 +11,10 @@
     }
 
 });
+
+function adjustImage() {
+    $(document).ready(function () {
+        $("#product-image").hide();
+        $("#tagImage").show();
+    });
+}

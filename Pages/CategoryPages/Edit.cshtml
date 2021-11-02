@@ -19,11 +19,6 @@
                 <input asp-for="Category.Name" class="form-control" />
                 <span asp-validation-for="Category.Name" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Category.SizeType" class="control-label"></label>
-                <input asp-for="Category.SizeType" class="form-control" />
-                <span asp-validation-for="Category.SizeType" class="text-danger"></span>
-            </div>
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Category.Status" /> @Html.DisplayNameFor(model => model.Category.Status)

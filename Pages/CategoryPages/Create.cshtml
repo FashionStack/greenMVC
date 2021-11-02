@@ -5,39 +5,29 @@
     ViewData["Title"] = "Insira uma Nova Categoria";
 }
 
-<h1>Insira uma nova Categoria</h1>
-
-<h4>Categorias</h4>
+<h1>Adicionar nova categoria</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Category.Name" class="control-label"></label>
-                <input asp-for="Category.Name" class="form-control" />
-                <span asp-validation-for="Category.Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Category.SizeType" class="control-label"></label>
-                <input asp-for="Category.SizeType" class="form-control" />
-                <span asp-validation-for="Category.SizeType" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Category.Status" /> @Html.DisplayNameFor(model => model.Category.Status)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+    <div class="col-md-6">
+        <div class="category-create">
+            <form method="post">
+                <div class="form-group">
+                    <label for="name" class="control-label">Nome </label>
+                    <input type="text" class="form-control" id="name" name="name" maxlength="100" required>
+                </div>
+                <div>
+                    <div class="generic-btn-box">
+                        <a class="btn btn-generic m-0"
+                           asp-page="./Index"><span class="material-icons">arrow_back</span>
+                                              <span class="back">Voltar</span></a>
+                        <button class="btn-save m-0" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
-<div>
-    <a asp-page="Index">Back to List</a>
-</div>
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
