@@ -25,6 +25,9 @@ namespace GreenMVC.Pages.ProductPages
         [BindProperty]
         public Product Product { get; set; }
 
+        [BindProperty]
+        public List<Category> Category { get; set; }
+
         string baseUrl => Configuration.GetConnectionString("ApiUrl");
 
         public async Task<IActionResult> OnGetAsync(int? id)

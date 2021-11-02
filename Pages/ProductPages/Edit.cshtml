@@ -5,55 +5,136 @@
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Product</h4>
+<h4>Editar Produto</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Product.ProductId" />
-            <div class="form-group">
-                <label asp-for="Product.Name" class="control-label"></label>
-                <input asp-for="Product.Name" class="form-control" />
-                <span asp-validation-for="Product.Name" class="text-danger"></span>
+    <div class="col-md-12 col-lg-9">
+        <div class="card-create">
+            <form method="post">
+                <div class="row">
+                    <input type="hidden" asp-for="Product.ProductId" />
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label asp-for="Product.Name" for="name" class="control-label">Nome </label>
+                            <input asp-for="Product.Name" type="text" class="form-control" id="name" name="name" maxlength="100">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div>
+                            <label for="sustainable" class="control-label">Material Sustentável </label>
+                            <div>
+                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 category">
+                        <div class="form-group">
+                            <label for="listbox1" class="control-label" aria-label="Selecione a categoria">Categoria </label>
+                            <select class="category" id="listbox1" name="category">
+                                <option aria-selected="true" value="">Selecione</option>
+                                @foreach (var item in Model.Categories)
+                                {
+                                    <option aria-selected="false" selected="@(item.CategoryId == Model.Product.Category.CategoryId ? "selected" : "false")" value="@item.CategoryId">@item.Name</option>
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Size" for="size" class="control-label">Tamanho </label>
+                    <select class="size" id="size" name="size">
+                        <option aria-selected="true" default value="@Html.DisplayFor(model => Model.Product.Size)">@Html.DisplayFor(model => Model.Product.Size)</option>
+                        <option aria-selected="false" default value="PP">PP</option>
+                        <option aria-selected="false" default value="P">P</option>
+                        <option aria-selected="false" default value="M">M</option>
+                        <option aria-selected="false" default value="G">G</option>
+                        <option aria-selected="false" default value="GG">GG</option>
+                        <option aria-selected="false" default value="GG1">GG1</option>
+                        <option aria-selected="false" default value="GG2">GG2</option>
+                        <option aria-selected="false" default value="GG3">GG3</option>
+                        <option aria-selected="false" default value="0-3M">0 a 3 meses</option>
+                        <option aria-selected="false" default value="4-7M">4 a 7 meses</option>
+                        <option aria-selected="false" default value="8-12M">8 a 12 meses</option>
+                        <option aria-selected="false" default value="1">1 ano</option>
+                        <option aria-selected="false" default value="2">2 anos</option>
+                        <option aria-selected="false" default value="3">3 anos</option>
+                        <option aria-selected="false" default value="4">4 anos</option>
+                        <option aria-selected="false" default value="5">5 anos</option>
+                        <option aria-selected="false" default value="6">6 anos</option>
+                        <option aria-selected="false" default value="7">7 anos</option>
+                        <option aria-selected="false" default value="8">8 anos</option>
+                        <option aria-selected="false" default value="9">9 anos</option>
+                        <option aria-selected="false" default value="10">10 anos</option>
+                        <option aria-selected="false" default value="12">12 anos</option>
+                        <option aria-selected="false" default value="14">14 anos</option>
+                        <option aria-selected="false" default value="16">16 anos</option>
+                        <option aria-selected="false" default value="34">34</option>
+                        <option aria-selected="false" default value="36">36</option>
+                        <option aria-selected="false" default value="38">38</option>
+                        <option aria-selected="false" default value="40">40</option>
+                        <option aria-selected="false" default value="42">42</option>
+                        <option aria-selected="false" default value="44">44</option>
+                        <option aria-selected="false" default value="46">46</option>
+                    </select>
+                    <!--<input asp-for="Product.Size" type="text" class="form-control" id="size" name="size" maxlength="5" required>-->
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.Size" class="control-label"></label>
-                <input asp-for="Product.Size" class="form-control" />
-                <span asp-validation-for="Product.Size" class="text-danger"></span>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.Amount" for="amount" class="control-label">Quantidade </label>
+                    <input asp-for="Product.Amount" type="text" class="form-control" id="amount" name="amount" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.SKU" class="control-label"></label>
-                <input asp-for="Product.SKU" class="form-control" />
-                <span asp-validation-for="Product.SKU" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.ReferenceCode" for="referenceCode" class="control-label">REF </label>
+                    <input asp-for="Product.ReferenceCode" type="text" class="form-control" id="referenceCode" name="referenceCode" maxlength="50" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.ReferenceCode" class="control-label"></label>
-                <input asp-for="Product.ReferenceCode" class="form-control" />
-                <span asp-validation-for="Product.ReferenceCode" class="text-danger"></span>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Product.SKU" for="sku" class="control-label">SKU </label>
+                    <input asp-for="Product.SKU" type="text" class="form-control" id="sku" name="sku" maxlength="50" required>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.Amount" class="control-label"></label>
-                <input asp-for="Product.Amount" class="form-control" />
-                <span asp-validation-for="Product.Amount" class="text-danger"></span>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="Product.ImageUrl" for="imageUrl" class="control-label">URL da Imagem </label>
+                    <input asp-for="Product.ImageUrl" type="text" class="form-control" id="imageUrl" name="imageUrl" maxlength="250">
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="Product.ImageUrl" class="control-label"></label>
-                <input asp-for="Product.ImageUrl" class="form-control" />
-                <span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
-                
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
+        </div>
+        <div>
+            <button class="btn-save" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
+        </div>
         </form>
+    </div>
+    </div>
+    <div class="col-md-12 col-lg-3">
+        <div class="product-img">
+            <img id="product-image" src="@Model.Product.ImageUrl" onerror="adjustImage()" aria-label="Imagem do produto">
+            <span id="tagImage" class="material-icons">sell</span>
+        </div>
     </div>
 </div>
 
+<script>
+    function adjustImage() {
+        $("#product-image").hide();
+        $("#tagImage").show();
+    }
+</script>
+
 <div>
-    <a asp-page="./Index">Back to List</a>
+    <a class="back-list" asp-page="./Index">Back to List</a>
 </div>
 
 @section Scripts {
