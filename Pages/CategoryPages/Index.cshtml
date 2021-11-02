@@ -12,7 +12,7 @@
     <div id="principal">
        
         <div class="bt-add">
-            <a class="btn-save btn-add"
+            <a class="btn-save btn-add"style="background:#777;"
                asp-page="./Create"><span class="material-icons">add_circle</span>Adicionar</a>
         </div>
         <ul class="tab1">
@@ -22,7 +22,7 @@
                     <p style="font-family:'Roboto'" aria-label=" @Html.DisplayNameFor(model => model.Category[0].Name)">@Html.DisplayFor(modelItem => item.Name)</p>
 
                     <div id="delete">
-                        <a class="btn-save bt-dl"
+                        <a class="btn-save bt-dl"style="background-color:#F64B4B;"
                             asp-page="./Delete" asp-route-id="@item.CategoryId">
                             <span class="material-icons">
                                 delete
