@@ -4,14 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using GreenMVC.Context;
 using GreenMVC.Models;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using Newtonsoft.Json;
+using System.Net.Http.Json;
 using Microsoft.Extensions.Configuration;
-
+using Newtonsoft.Json;
 
 
 namespace GreenMVC.Pages.ProductPages
@@ -51,6 +51,29 @@ namespace GreenMVC.Pages.ProductPages
             }
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnPostAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+                HttpResponseMessage response = await client
+                    .PostAsJsonAsync("api/Products", Product);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    //Produtos/Index
+                    return RedirectToPage("./Index");
+                }
+                else
+                {
+                    return RedirectToPage("./Create");
+                }
+            }
         }
     }
 }

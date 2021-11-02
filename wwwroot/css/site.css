@@ -203,6 +203,7 @@ span#tagImage {
     display: flex;
     justify-content: flex-end;
     gap: 7px;
+    margin-top: 40px;
 }
 
 select.size, select.category {
@@ -219,25 +220,21 @@ select.size, select.category {
 }
 
     .stock-management .card-create {
-        width: 425px;
+        width: 30em;
+    }
+
+    .stock-management h3#amount {
+        font-size: xx-large;
+        font-weight:400;
+    }
+
+    .stock-management label.control-label {
+        font-size: large;
     }
 
     .stock-management .card-create input[name=amount] {
-        width: 70px;
-    }
-
-.stock-change {
-}
-
-    .stock-change.decrement {
-    }
-
-        .stock-change.decrement span {
-            position: relative;
-            bottom: 5px;
-        }
-
-    .stock-change.increment {
+        width: 245px;
+        font-size: xx-large;
     }
 
 #dashboard-screen {
