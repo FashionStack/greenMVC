@@ -58,11 +58,13 @@ button.accept-policy {
 html {
     position: relative;
     min-height: 100%;
+    font-family: 'Roboto', sans-serif;
 }
 
 body { /*modified*/
     /* Margin bottom by footer height */
     margin-bottom: 0px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .footer {
@@ -121,6 +123,13 @@ input.apple-switch {
 
 /*------------------Fim-------------------*/
 
+/*------------------Página de Produtos-------------------*/
+.title-pages {
+    font-size: 60px;
+    margin: 20px;
+    color: #777777;
+}
+/*------------------Fim-------------------*/
 .card-create {
     border-radius: 15px 15px 15px 15px;
     background: white;
