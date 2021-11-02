@@ -4,7 +4,184 @@
     ViewData["title"] = "Home page";
 }
 
-<div class="text-left">
-    <h3 class="display-4">Dashboard</h3>
-    @*@Model.Dashboard.ProductsCount*@
+<div id="dashboard-screen">
+    <div class="title">
+        <h3 class="display-4">Dashboard</h3>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                        Quantidade de produtos cadastrados
+                    </div>
+                    <div class="counter-box">
+                        <span class="counter">@Model.Dashboard.ProductsCount</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-title">
+                        Quantidade de itens em estoque
+                    </div>
+                    <div class="counter-box">
+                        <span class="counter">@Model.Dashboard.StockItemsCount</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <span class="card-title">
+                        Quantidade de itens sustentáveis
+                    </span>
+                    <div class="chart-box">
+                        <div class="legend-box">
+                            <div class="chart-label">
+                                <span class="counter-label">Sustentável</span>
+                                <span class="counter sustainable">@Model.Dashboard.SustainableItemsCount</span>
+                            </div>
+                            <div class="chart-label">
+                                <span class="counter-label">Não sustentável</span>
+                                <span class="counter non-sustainable">@Model.Dashboard.NonSustainableItemsCount</span>
+                            </div>
+                        </div>
+                        <div class="sustainable-items">
+                            <canvas id="sustainable-items-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card">
+                    <span class="card-title">
+                        Top quantidade de itens por categoria
+                    </span>
+                    <div class="chart-box">
+                        <div class="categories-chart">
+                            <canvas id="categories-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script>
+    //Gráfico: Quantidade de itens sustentáveis
+    const sustainableItemsConfig = {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Sustentável',
+                'Não sustentável'
+            ],
+            datasets: [{
+                data: [@(Model.Dashboard.SustainableItemsCount), @(Model.Dashboard.NonSustainableItemsCount)],
+                backgroundColor: [
+                    '#4FDB42',
+                    '#F64B4B'
+                ],
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+        }
+    };
+
+    const sustainableItemsChart = new Chart(document.getElementById('sustainable-items-chart'), sustainableItemsConfig);
+
+    //Gráfico: Top quantidade de itens por categoria
+    var data = {
+        categories: [
+            @{foreach (var item in Model.Dashboard.Categories)
+                {
+                        <text>'@Html.Raw(item.Category)',</text>
+                }
+            }
+        ],
+        sustainableCount: [
+            @foreach (var item in Model.Dashboard.Categories)
+            {
+                <text>'@item.SustainableItemsCount',</text>
+            }
+        ],
+        nonSustainableCount: [
+            @foreach (var item in Model.Dashboard.Categories)
+            {
+                <text>'@item.NonSustainableItemsCount',</text>
+            }
+        ],
+    };
+
+    const categoriesConfig = {
+        type: 'bar',
+        data: {
+            labels: data.categories,
+            datasets: [
+                {
+                    label: 'Sustentável',
+                    data: data.sustainableCount,
+                    backgroundColor: '#4FDB42'
+                },
+                {
+                    label: 'Não sustentável',
+                    data: data.nonSustainableCount,
+                    backgroundColor: '#F64B4B'
+                },
+            ]
+        },
+        options: {
+            indexAxis: 'y',
+            scales: {
+                x: {
+                    stacked: true,
+                    grid: {
+                        offset: true
+                    }
+                },
+                y: {
+                    stacked: true,
+                    grid: {
+                        offset: true
+                    },
+                    gridLines: {
+                        display: false
+                    },
+                    ticks: {
+                        font: {
+                            size: 16
+                        }
+                    }
+                },
+            },
+            legend: {
+                labels: {
+                    defaultFontSize: 13
+                }
+            },
+            responsive: true,
+            maintainAspectRatio: false,
+            scaleShowLabels: false,
+            plugins: {
+                legend: {
+                    labels: {
+                        font: {
+                            size: 14
+                        }
+                    },
+                    position: 'bottom'
+                }
+            }
+        }
+    };
+
+    const categoriesChart = new Chart(document.getElementById('categories-chart'), categoriesConfig);
+</script>
