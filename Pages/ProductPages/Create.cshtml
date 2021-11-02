@@ -2,7 +2,7 @@
 @model GreenMVC.Pages.ProductPages.CreateModel
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Adicionar Produto";
 }
 
 
@@ -11,8 +11,9 @@
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
 
-<h1 class="text-center">Adicionar novo produto</h1>
-<hr />
+<div class="title-pages">
+    @ViewData["title"]
+</div>
 <div class="row">
     <div class="col-md-12 col-lg-9">
         <div class="card-create">
@@ -30,7 +31,10 @@
                         <div>
                             <label for="sustainable" class="control-label">Material Sustentável</label>
                             <div>
-                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
+                                <label class="form-switch">
+                                    <input type="checkbox" id="sustainable" name="Sustainable" value="">
+                                    <i></i>
+                                </label>
                             </div>
                         </div>
                     </div>
@@ -97,7 +101,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="referenceCode" class="control-label">REF </label>
+                            <label for="referenceCode" class="control-label">REF</label>
                             <input type="text" class="form-control" id="referenceCode" name="referenceCode" maxlength="50" required>
                         </div>
                     </div>
@@ -129,3 +133,6 @@
         </div>
     </div>
 </div>
+<script>
+    checkboxFix();
+</script>
