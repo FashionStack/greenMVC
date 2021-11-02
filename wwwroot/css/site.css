@@ -113,6 +113,14 @@ input.apple-switch {
 
 /*             Fim Apple Switch                  */
 
+/*------------------Página de Produtos-------------------*/
+
+.table-light {
+    border: 13px solid #eeeeee;
+}
+
+/*------------------Fim-------------------*/
+
 .card-create {
     border-radius: 15px 15px 15px 15px;
     background: white;
