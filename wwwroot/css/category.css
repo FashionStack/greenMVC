@@ -37,7 +37,7 @@ p {
 
 .btn-add {
     color: #FFFFFF;
-    background-color: #777777;
+    background-color: #777777 !important;
     text-decoration-line: none;
     border-radius: 5px;
     margin-right: 35px;
@@ -46,13 +46,13 @@ p {
     text-decoration-line: none !important;
 }
 .bt-dl {
-    background-color: #F64B4B;
+    background-color:#ff0000;
     border-radius: 5px;
     margin-right: 13px;
     height: 28px;
     width: 107px;
     text-decoration-line: blink;
-    align-items:center;
+    align-items: center;
 }
 a:hover {
     color: white !important;
@@ -75,4 +75,7 @@ a:hover {
     margin-left: 5px;
     align-items: center;
     text-decoration-line: none;
+}
+.linha-form{
+    margin:5px;
 }
