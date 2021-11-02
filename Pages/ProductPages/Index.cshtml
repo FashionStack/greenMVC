@@ -32,7 +32,7 @@
                     <td class="auto-hide">@Html.DisplayFor(modelItem => item.Size)</td>
                     <td>@Html.DisplayFor(modelItem => item.Amount)</td>
                     <td>
-                        <a asp-page="./Delete" asp-route-id="@item.ProductId" style="text-decoration:none">
+                        <a asp-page="./EditStock" asp-route-id="@item.ProductId" style="text-decoration:none">
                             <button type="button" class="btn btn-success">
                                 <span class="material-icons">inventory_2</span>
                                 Estoque

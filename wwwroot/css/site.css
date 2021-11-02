@@ -144,7 +144,7 @@ h3 {
 span#tagImage {
     color: #C1C1C1;
     display: none;
-    font-size: 170px;
+    font-size: 170px!important;
 }
 
 .btn-save {
@@ -203,6 +203,7 @@ span#tagImage {
     display: flex;
     justify-content: flex-end;
     gap: 7px;
+    margin-top: 40px;
 }
 
 select.size, select.category {
@@ -222,9 +223,9 @@ select.size, select.category {
         width: 425px;
     }
 
-    .stock-management .card-create input[name=amount] {
-        width: 70px;
-    }
+        .stock-management .card-create input[name=amount] {
+            width: 70px;
+        }
 
 .stock-change {
 }
@@ -409,6 +410,10 @@ select.size, select.category {
             .form-switch input:checked + i::after {
                 transform: translate3d(22px, 2px, 0);
             }
+
+#product-grid {
+    overflow: hidden;
+}
 
 #product-grid .table .table-light {
     --bs-table-bg: #fff;

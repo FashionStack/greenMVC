@@ -11911,10 +11911,12 @@ textarea.form-control-lg {
     #sidebar-wrapper .list-group-item {
         font-size: 17px;
     }
-    
-    #sidebar-wrapper .list-group-item span {
-        margin-right: 30px;
-    }
+
+        #sidebar-wrapper .list-group-item span {
+            margin-right: 30px;
+            position: relative;
+            top: 2px;
+        }
 
     #page-content-wrapper {
         min-width: 100vw;
