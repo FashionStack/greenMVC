@@ -4,42 +4,46 @@
 }
 
 @{
-    ViewData["Title"] = "EditStock";
+    ViewData["Title"] = "Gerenciamento de Estoque";
 }
 
-<h1 class="text-center">Gerenciamento de estoque</h1>
-<hr />
-    <div class="col-md-6 col-lg-9 stock-management">
-        <div class="card-create">
-            <form method="post">
-                <div class="row">
-                    <input type="hidden" asp-for="Product.ProductId" />
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="amount" class="control-label">Estoque total: </label>
-                            <h3 id="amount" name="amount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="stock-change" class="control-label">Movimentação de estoque</label>
-                            <div class="d-flex">
-                                @*<a class="stock-change decrement"><span class="material-icons">minimize</span></a>
-        <input type="number" name="amount" />
-        <a class="stock-change increment"><span class="material-icons">add</span></a>*@
+<div class="title-pages">
+    @ViewData["title"]
+</div>
 
-                                <div class='ctrl'>
-                                    <div class='ctrl__button ctrl__button--decrement'>&ndash;</div>
-                                    <div class='ctrl__counter'>
-                                        <input class='ctrl__counter-input' maxlength='10' type='text' value='0'>
-                                        <div class='ctrl__counter-num'>0</div>
-                                    </div>
-                                    <div class='ctrl__button ctrl__button--increment'>+</div>
-                                </div>
-                            </div>
+<div class="col-md-6 col-lg-9 stock-management">
+    <div class="card-create">
+        <form method="post">
+            <div class="row">
+                <input type="hidden" asp-for="Product.ProductId" />
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="amount" class="control-label">Estoque total: </label>
+                        <h3 id="amount" name="amount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="stock-change" class="control-label">Movimentação de estoque</label>
+                        <div class="d-flex">
+                            <input type="number" name="amount" />
                         </div>
                     </div>
                 </div>
-            </form>
-        </div>
+            </div>
+            <div>
+                <div class="generic-btn-box">
+                    <a class="btn btn-generic m-0"
+                       asp-page="./Index">
+                        <span class="material-icons">arrow_back</span>
+                        <span class="back">Voltar</span>
+                    </a>
+                    <button class="btn-save m-0" type="submit" aria-label="salvar">
+                        <span class="material-icons">save</span>
+                        Salvar
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>

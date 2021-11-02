@@ -220,25 +220,21 @@ select.size, select.category {
 }
 
     .stock-management .card-create {
-        width: 425px;
+        width: 30em;
     }
 
-        .stock-management .card-create input[name=amount] {
-            width: 70px;
-        }
-
-.stock-change {
-}
-
-    .stock-change.decrement {
+    .stock-management h3#amount {
+        font-size: xx-large;
+        font-weight: 400;
     }
 
-        .stock-change.decrement span {
-            position: relative;
-            bottom: 5px;
-        }
+    .stock-management label.control-label {
+        font-size: large;
+    }
 
-    .stock-change.increment {
+    .stock-management .card-create input[name=amount] {
+        width: 245px;
+        font-size: xx-large;
     }
 
 #dashboard-screen {
