@@ -85,25 +85,5 @@ namespace GreenMVC.Pages.ProductPages
                 }
             }
         }
-
-        /*public async Task OnGetAsync()
-        {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(baseUrl);
-                client.DefaultRequestHeaders.Clear();
-                client.DefaultRequestHeaders.Accept.Add(
-                    new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = await client.GetAsync("api/Categories");
-                if (response.IsSuccessStatusCode)
-                {
-                    string result = response.Content.ReadAsStringAsync().Result;
-                    Category = JsonConvert.DeserializeObject<List<Category>>(result);
-                }
-            }
-        }*/
-
-
     }
 }

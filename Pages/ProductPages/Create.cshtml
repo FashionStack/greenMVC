@@ -117,22 +117,15 @@
                     </div>
                 </div>
                 <div>
-                    <button class="btn-save" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
+                    <button class="btn-save" type="submit" value="Save" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
                 </div>
             </form>
         </div>
     </div>
     <div class="col-md-12 col-lg-3">
         <div class="product-img">
-            <img id="product-image" src="" onerror="adjustImage()" aria-label="Imagem do produto adicionado" >
+            <img id="product-image" src="" onerror="adjustImage()" aria-label="Imagem do produto" />
             <span id="tagImage" class="material-icons">sell</span>
         </div>
     </div>
 </div>
-
-<script>
-    function adjustImage() {
-        $("#product-image").hide();
-        $("#tagImage").show();
-    }
-</script>

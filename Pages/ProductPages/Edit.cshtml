@@ -16,7 +16,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label asp-for="Product.Name" for="name" class="control-label">Nome </label>
-                            <input asp-for="Product.Name" type="text" class="form-control" id="name" name="name" maxlength="100">
+                            <input type="text" class="form-control" id="name" name="name" maxlength="100" required value="@Model.Product">
                         </div>
                     </div>
                 </div>
@@ -25,7 +25,7 @@
                         <div>
                             <label for="sustainable" class="control-label">Material Sustentável </label>
                             <div>
-                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable" required>
+                                <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
                             </div>
                         </div>
                     </div>
@@ -125,19 +125,8 @@
     </div>
     <div class="col-md-12 col-lg-3">
         <div class="product-img">
-            <img id="product-image" src="@Model.Product.ImageUrl" onerror="adjustImage()" aria-label="Imagem do produto">
+            <img id="product-image" src="@(Model.Product.ImageUrl != null ? Model.Product.ImageUrl : "")" onerror="adjustImage()" aria-label="Imagem do produto" />
             <span id="tagImage" class="material-icons">sell</span>
         </div>
     </div>
 </div>
-
-<script>
-    function adjustImage() {
-        $("#product-image").hide();
-        $("#tagImage").show();
-    }
-</script>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
