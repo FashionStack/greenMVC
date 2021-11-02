@@ -74,7 +74,7 @@ namespace GreenMVC.Pages.ProductPages
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
                 HttpResponseMessage response = await client
-                    .PutAsJsonAsync("api/Product/" + Product.ProductId, Product);
+                    .PutAsJsonAsync("api/Products/" + Product.ProductId, Product);
                 if (response.IsSuccessStatusCode)
                 {
                     return RedirectToPage("./Index");
