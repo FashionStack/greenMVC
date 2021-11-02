@@ -11908,9 +11908,17 @@ textarea.form-control-lg {
         width: 15rem;
     }
 
-#page-content-wrapper {
-    min-width: 100vw;
-}
+    #sidebar-wrapper .list-group-item {
+        font-size: 17px;
+    }
+    
+    #sidebar-wrapper .list-group-item span {
+        margin-right: 30px;
+    }
+
+    #page-content-wrapper {
+        min-width: 100vw;
+    }
 
 body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
     margin-left: 0;
