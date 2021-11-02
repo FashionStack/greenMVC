@@ -9,14 +9,14 @@
     <h3 class="display-4">Produtos</h3>
 </div>
 
-<div class="table-responsive">
+<div id="product-grid" class="table-responsive">
     <table class="table table-borderless">
-        <thead>
+        <thead class="control-label">
             <tr>
                 <th scope="col"></th>
                 <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Name)</th>
                 <th scope="col">@Html.DisplayNameFor(model => model.Product[0].ReferenceCode)</th>
-                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Size)</th>
+                <th scope="col" class="auto-hide">@Html.DisplayNameFor(model => model.Product[0].Size)</th>
                 <th scope="col">@Html.DisplayNameFor(Model => Model.Product[0].Amount)</th>
             </tr>
         </thead>
@@ -25,22 +25,23 @@
             @foreach (var item in Model.Product)
              {
                 <tr class="table-light">
-                    <th scope="row"><img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" alt="@Html.DisplayFor(modelItem => item.Name)" /></th>
+                    <td scope="row">
+                    <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" /></td>
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.ReferenceCode)</td>
-                    <td>@Html.DisplayFor(modelItem => item.Size)</td>
+                    <td class="auto-hide">@Html.DisplayFor(modelItem => item.Size)</td>
                     <td>@Html.DisplayFor(modelItem => item.Amount)</td>
                     <td>
-                        <a asp-page="./Details" asp-route-id="@item.ProductId" style="text-decoration:none">
-                            <button type="button" class="btn btn-secondary" onclick="">
-                                <span class="material-icons">edit</span>
-                                Detalhes
+                        <a asp-page="./Delete" asp-route-id="@item.ProductId" style="text-decoration:none">
+                            <button type="button" class="btn btn-success">
+                                <span class="material-icons">inventory_2</span>
+                                Estoque
                             </button>
                         </a>
-                        <a asp-page="./Delete" asp-route-id="@item.ProductId" style="text-decoration:none">
-                            <button type="button" class="btn btn-danger">
-                                <span class="material-icons">delete</span>
-                                Deletar
+                        <a asp-page="./Details" asp-route-id="@item.ProductId" style="text-decoration:none">
+                            <button type="button" class="btn btn-secondary" onclick="">
+                                <span class="material-icons">open_in_new</span>
+                                Detalhes
                             </button>
                         </a>
                     </td>
@@ -50,4 +51,3 @@
         </tbody>
     </table>
 </div>
-
