@@ -7,98 +7,70 @@
 }
 
 <h1 class="text-center">Detalhes do Produto</h1>
+<hr />
 <div class="row">
     <div class="col-md-12 col-lg-9">
         <div class="card-create">
-            <form method="post">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="name" class="control-label">Nome </label>
-                            <h4>
-                                @Html.DisplayFor(model => model.Product.Name)
-                            </h4>
-                        </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="name" class="control-label">Nome </label>
+                    <h3 id="name" name="name">@Html.DisplayFor(model => Model.Product.Name)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="sustainable" class="control-label">Material Sustentável </label>
+                    <div>
+                        <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div>
-                            <label for="sustainable" class="control-label">Material Sustentável </label>
-                            <div>
+                <div class="col-md-6 category">
+                    <label for="listbox1" class="control-label" aria-label="Selecione a categoria">Categoria </label>
+                    <h3 id="category" name="category">@Html.DisplayFor(model => Model.Product.Category.Name)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="size" class="control-label">Tamanho </label>
+                    <h3 id="size" name="size">@Html.DisplayFor(model => Model.Product.Size)</h3>
+                </div>
+                <div class="col-md-6">
+                    <label for="amount" class="control-label">Quantidade </label>
+                    <h3 id="amount" name="amount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="referenceCode" class="control-label">REF </label>
+                    <h3 id="referenceCode" name="referenceCode">@Html.DisplayFor(model => Model.Product.ReferenceCode)</h3>
+                </div>
+                <div class="col-md-6">
+                    <label for="sku" class="control-label">SKU </label>
+                    <h3 id="sku" name="sku">@Html.DisplayFor(model => Model.Product.SKU)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="imageUrl" class="control-label">URL da Imagem </label>
+                    <h3 id="imageUrl" name="imageUrl">@Html.DisplayFor(model => Model.Product.ImageUrl)</h3>
+                </div>
+            </div>
+            <div class="row">
+                <a class="btn btn-edit"
+                   asp-page="/ProductPages/Edit"
+                   asp-route-id="@Model.Product.ProductId"><span class="material-icons">edit</span>Editar</a>
+                <a class="btn btn-danger delete"
+                   asp-page="/ProductPages/Delete"
+                   asp-route-id="@Model.Product.ProductId"><span class="material-icons">delete</span>Excluir</a>
+                <div>
 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 category">
-                        <div class="form-group">
-                            <label for="listbox1" class="control-label" aria-label="Selecione a categoria">Categoria </label>
-                             <h4>
-                                 @Html.DisplayFor(model => model.Product.Category)
-                             </h4>
-                        </div>
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="size" class="control-label">Tamanho </label>
-                            <h4>
-                                @Html.DisplayFor(model => model.Product.Size)
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="amount" class="control-label">Quantidade </label>
-                            <h4>
-                                @Html.DisplayFor(model => model.Product.Amount)
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="referenceCode" class="control-label">REF </label>
-                            <h4>
-                                @Html.DisplayFor(model => model.Product.ReferenceCode)
-                            </h4>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="sku" class="control-label">SKU </label>
-                            <h4>
-                                @Html.DisplayFor(model => model.Product.SKU)
-                            </h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label for="imageUrl" class="control-label">URL da Imagem </label>
-                            <img class="product-img" src="@Html.DisplayFor(model => model.Product.ImageUrl)" />
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button class="btn-save" type="submit" aria-label="salvar"><span class="material-icons">save</span>Salvar</button>
-                </div>
-                <div>
-                    <button class="btn-edit" type="submit" aria-label="salvar"><span class="material-icons">save</span>pencil</button>
-                </div>
-                <div>
-                    <a class="btn btn-danger" asp-page="./Edit" asp-route-id="@Model.Product.ProductId">Edit</a> |
-                    <a class="btn btn-dark" asp-page="./Index">Back to List</a>
-                </div>
-            </form>
+            </div>
         </div>
     </div>
     <div class="col-md-12 col-lg-3">
         <div class="product-img">
-            <img id="product-image" src="" onerror="adjustImage()" aria-label="Imagem do produto adicionado">
+            <img id="product-image" src="@Model.Product.ImageUrl" onerror="adjustImage()" aria-label="Imagem do produto">
             <span id="tagImage" class="material-icons">sell</span>
         </div>
     </div>
@@ -110,3 +82,9 @@
         $("#tagImage").show();
     }
 </script>
+
+<div>
+    <a class="back-list"
+       asp-page="./Index">Back to List</a>
+</div>
+
