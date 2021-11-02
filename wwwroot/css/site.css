@@ -241,6 +241,11 @@ select.size, select.category {
     font-family: Roboto;
 }
 
+    #dashboard-screen .card-box {
+        display: flex;
+        justify-content: center;
+    }
+
     #dashboard-screen .card {
         border-radius: 15px;
         background-color: #fff;
@@ -251,7 +256,7 @@ select.size, select.category {
 
 @media (max-width: 1200px) {
     #dashboard-screen .card {
-        max-width: 500px;
+        max-width: 550px;
     }
 }
 
@@ -284,7 +289,7 @@ select.size, select.category {
 }
 
 #dashboard-screen .card .categories-chart {
-    width: 400px;
+    width: 360px;
     height: 200px;
 }
 
@@ -307,6 +312,8 @@ select.size, select.category {
     #dashboard-screen .card .legend-box .chart-label {
         display: flex;
         justify-content: space-between;
+        min-width: 170px;
+        width: 100%;
     }
 
     #dashboard-screen .card .legend-box .counter-label {
@@ -399,3 +406,52 @@ select.size, select.category {
             .form-switch input:checked + i::after {
                 transform: translate3d(22px, 2px, 0);
             }
+
+#product-grid .table .table-light {
+    --bs-table-bg: #fff;
+}
+
+#product-grid .table td {
+    text-align: center;
+    vertical-align: middle;
+    color: #444;
+}
+
+#product-grid .table thead {
+    text-align: center;
+}
+
+#product-grid .table td:first-child {
+    border-top-left-radius: 35px;
+    border-bottom-left-radius: 35px;
+    width: 80px;
+}
+
+#product-grid .table td:last-child {
+    border-top-right-radius: 35px;
+    border-bottom-right-radius: 35px;
+    width: 80px;
+}
+
+#product-grid .table .auto-hide {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    #product-grid .table .auto-hide {
+        display: table-cell;
+    }
+}
+
+#product-grid .table .btn {
+    border: none;
+    align-items: center;
+}
+
+    #product-grid .table .btn span {
+        padding: 0 8px;
+    }
+
+    #product-grid .table .btn-success {
+        background-color: #45B63B;
+    }
