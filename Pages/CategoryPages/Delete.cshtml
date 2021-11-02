@@ -11,19 +11,19 @@
         <div class="category-create">
                 <div class="form-group">
                     <h3>@Html.DisplayNameFor(model => model.Category.Name)</h3>
-                    <h3 class="linha-form" style="font-size:16px;height:10px;">@Html.DisplayFor(model => model.Category.Name)</h3>
+                    <h3 class="linha-form">@Html.DisplayFor(model => model.Category.Name)</h3>
                 </div>
                 <div>
-                    <div class="generic-btn-box" style="align-items:center;">
+                    <div class="generic-btn-box" style="align-items:end;">
                         <a class="btn btn-generic m-0"
                            asp-page="./Index">
                             <span class="material-icons">arrow_back</span>
                             <span class="back">Voltar</span>
                         </a>
-                       <form>
+                        <form method="post" style="align-items:center;" >
                             <input type="hidden" asp-for="Category.CategoryId" />
-                            <button type="submit" value="Delete" class="btn btn-danger delete m-0" style="align-items:center;" />
-                            <span class="material-icons">delete</span>Deletar
+                            <button type="submit" value="Delete" class="btn-save bt-dl"style="background-color:#F64B4B;" />
+                            <span class="material-icons">delete</span>Delete
                         </form>
                     </div>
                 </div>
