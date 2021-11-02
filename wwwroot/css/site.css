@@ -113,7 +113,17 @@ input.apple-switch {
 .card-create {
     border-radius: 15px 15px 15px 15px;
     background: white;
-    padding: 5px;
+    margin-bottom: 10px;
+    line-height: 25px;
+    justify-self: auto;
+    padding: 25px;
+    font-size: larger;
+    font-weight: 400;
+}
+
+.category-create {
+    border-radius: 15px 15px 15px 15px;
+    background: white;
     margin-bottom: 10px;
     line-height: 25px;
     justify-self: auto;
@@ -172,6 +182,7 @@ span#tagImage {
     margin-left: auto;
     margin-top: 1em;
     justify-content: space-around;
+    font-size: 18px;
 }
 
 .delete {
@@ -188,7 +199,7 @@ span#tagImage {
     justify-content: space-around;
 }
 
-.btn-edit {
+.btn-generic {
     background-color: #DDDDDD;
     border: none;
     border-radius: 5px;
@@ -200,23 +211,18 @@ span#tagImage {
     display: flex;
     justify-self: auto;
     align-items: center;
-    margin-left: auto;
     justify-content: space-around;
 }
 
-.back-list {
-    background-color: black;
-    border: 5px;
-    border-radius: 5px;
-    color: white;
-    height: 30px;
-    line-height: 30px;
-    width: 90px;
-    cursor: pointer;
+.btn-generic span.back {
+    font-size: 18px;
+    margin-right: 3px;
+}
+
+.generic-btn-box {
     display: flex;
-    justify-self: auto;
-    align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
+    gap: 7px;
 }
 
 select.size, select.category {

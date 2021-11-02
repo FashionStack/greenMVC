@@ -19,7 +19,7 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <label for="sustainable" class="control-label">Material Sustentável </label>
+                    <label for="sustainable" class="control-label">Material Sustent&aacute;vel</label>
                     <div>
                         <input class="apple-switch" type="checkbox" id="sustainable" name="sustainable">
                     </div>
@@ -49,22 +49,15 @@
                     <h3 id="sku" name="sku">@Html.DisplayFor(model => Model.Product.SKU)</h3>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label for="imageUrl" class="control-label">URL da Imagem </label>
-                    <h3 id="imageUrl" name="imageUrl">@Html.DisplayFor(model => Model.Product.ImageUrl)</h3>
-                </div>
-            </div>
-            <div class="row">
-                <a class="btn btn-edit"
+            <div class="generic-btn-box">
+                <a class="btn btn-generic m-0"
+                   asp-page="./Index"><span class="material-icons">arrow_back</span><span class="back">Voltar</span></a>
+                <a class="btn btn-generic m-0"
                    asp-page="/ProductPages/Edit"
                    asp-route-id="@Model.Product.ProductId"><span class="material-icons">edit</span>Editar</a>
-                <a class="btn btn-danger delete"
+                <a class="btn btn-danger delete m-0"
                    asp-page="/ProductPages/Delete"
                    asp-route-id="@Model.Product.ProductId"><span class="material-icons">delete</span>Excluir</a>
-                <div>
-
-                </div>
             </div>
         </div>
     </div>
@@ -82,9 +75,3 @@
         $("#tagImage").show();
     }
 </script>
-
-<div>
-    <a class="back-list"
-       asp-page="./Index">Back to List</a>
-</div>
-
