@@ -21,7 +21,7 @@ namespace GreenMVC.Models
         [DisplayName("Nome")]
         public string Name { get; set; }
 
-        [DisplayName("Tamanho  ")]
+        [DisplayName("Tamanho")]
         public string Size { get; set; }
 
         [DisplayName("SKU")]

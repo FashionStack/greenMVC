@@ -2,71 +2,52 @@
 @model GreenMVC.Pages.ProductPages.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Produtos";
 }
-<h3 class="name-page"> Produtos </h3>
-<form action="#" method="post" class="search">
-    <input type="text" name="search" class="search-input" placeholder="Pesquisar" required />
-    <button type="submit" class="lupa"><span class="material-icons">search</span></button>
-</form>
 
-<table class="coluns-name">
-    <thead id="coluns">
-        <tr>
-            <th>
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].ReferenceCode)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(Model => Model.Product[0].Amount)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Product) {
-        <tr class="line-name">
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" alt="@Html.DisplayFor(modelItem => item.Name)"  />
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
+<div class="title">
+    <h3 class="display-4">Produtos</h3>
+</div>
 
-                @Html.DisplayFor(modelItem => item.ReferenceCode)
-            </td>
-            <td>
+<div class="table-responsive">
+    <table class="table table-borderless">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Name)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].ReferenceCode)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.Product[0].Size)</th>
+                <th scope="col">@Html.DisplayNameFor(Model => Model.Product[0].Amount)</th>
+            </tr>
+        </thead>
 
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td class="q-t">
+        <tbody>
+            @foreach (var item in Model.Product)
+             {
+                <tr class="table-light">
+                    <th scope="row"><img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" alt="@Html.DisplayFor(modelItem => item.Name)" /></th>
+                    <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.ReferenceCode)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Size)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Amount)</td>
+                    <td>
+                        <a asp-page="./Details" asp-route-id="@item.ProductId" style="text-decoration:none">
+                            <button type="button" class="btn btn-secondary" onclick="">
+                                <span class="material-icons">edit</span>
+                                Detalhes
+                            </button>
+                        </a>
+                        <a asp-page="./Delete" asp-route-id="@item.ProductId" style="text-decoration:none">
+                            <button type="button" class="btn btn-danger">
+                                <span class="material-icons">delete</span>
+                                Deletar
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+             }
 
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
+        </tbody>
+    </table>
+</div>
 
-            <td class="buttons-et-dt">
-                    <a asp-page="./Details" asp-route-id="@item.ProductId"style="text-decoration:none">
-                        <button type="button" class="btn btn-secondary" onclick="">
-                            <span class="material-icons">edit</span>
-                            Detalhes
-                        </button>
-                    </a>
-                    <a asp-page="./Delete" asp-route-id="@item.ProductId"style="text-decoration:none">
-                        <button type="button" class="btn btn-danger">
-                            <span class="material-icons">delete</span>
-                            Deletar
-                       </button>
-                    </a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
