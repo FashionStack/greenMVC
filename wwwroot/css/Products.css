@@ -1,0 +1,79 @@
+/*  Pagina de Produtos  */
+.line-name {
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin: px;
+    box-sizing: border-box;
+    border: 13px solid #eeeeee;
+}
+.coluns-name {
+    color: #777777; 
+    text-align: center;
+    border-radius: 15px;
+    padding: 2px;
+}
+.buttons-et-dt {
+    padding-top:5px;
+    box-sizing: border-box;
+    justify-self: auto;
+    align-items: center;
+    margin-left: auto;
+}
+.btn {
+    display: flex;
+    border-radius: 5px;
+    padding: 1px;
+    width: 112px;
+    height: 30px;
+    margin: 12px;
+}
+.btn-delete {
+    display: flex;
+    margin-top: 2px;
+    background-color: darkmagenta;
+    background-color: darkgreen;
+    border-radius: 5px;
+    background: #F64B4B;
+    padding: 1px;
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    justify-self: auto;
+    align-items: center;
+    margin-left: auto;
+}
+.img-product {
+    left: 10px;
+    min-width:100px;
+    max-height:120px;
+    border-radius:15px;
+    padding: 5px;
+}
+.name-page{
+    margin: 10px;
+}
+.search {
+    display: flex;
+    width: 250px;
+    margin: 10px;
+    padding: 1px;
+    border-radius: 10px;
+    background-color: #DDDDDD;
+    align-items: center;
+}
+.search-input {
+    border: none;
+    background-color: #DDDDDD;
+}
+.lupa {
+    border: none;
+    background-color: #DDDDDD;
+}
+.q-t {
+    padding:5px;
+}
+.name-page {
+    color: #777777;
+    margin: 20px;
+}

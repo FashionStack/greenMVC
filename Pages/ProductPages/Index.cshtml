@@ -4,66 +4,69 @@
 @{
     ViewData["Title"] = "Index";
 }
+<h3 class="name-page"> Produtos </h3>
+<form action="#" method="post" class="search">
+    <input type="text" name="search" class="search-input" placeholder="Pesquisar" required />
+    <button type="submit" class="lupa"><span class="material-icons">search</span></button>
+</form>
 
-
-<p>
-    <a asp-page="Create">Adicionar Novo Produto</a>
-</p>
-<table class="table">
-    <thead>
+<table class="coluns-name">
+    <thead id="coluns">
         <tr>
             <th>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Product[0].Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].Size)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product[0].SKU)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Product[0].ReferenceCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product[0].Amount)
+                @Html.DisplayNameFor(model => model.Product[0].Size)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product[0].ImageUrl)
+                @Html.DisplayNameFor(Model => Model.Product[0].Amount)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Product) {
-        <tr>
+        <tr class="line-name">
+            <td>
+                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" class="img-product" alt="@Html.DisplayFor(modelItem => item.Name)"  />
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Size)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SKU)
-            </td>
-            <td>
+
                 @Html.DisplayFor(modelItem => item.ReferenceCode)
             </td>
             <td>
+
+                @Html.DisplayFor(modelItem => item.Size)
+            </td>
+            <td class="q-t">
+
                 @Html.DisplayFor(modelItem => item.Amount)
             </td>
-            <td>
-                <img src="@Html.DisplayFor(modelItem => item.ImageUrl)" alt="@Html.DisplayFor(modelItem => item.Name)"/>
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ProductId">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ProductId">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ProductId">Delete</a>
+
+            <td class="buttons-et-dt">
+                    <a asp-page="./Details" asp-route-id="@item.ProductId"style="text-decoration:none">
+                        <button type="button" class="btn btn-secondary" onclick="">
+                            <span class="material-icons">edit</span>
+                            Detalhes
+                        </button>
+                    </a>
+                    <a asp-page="./Delete" asp-route-id="@item.ProductId"style="text-decoration:none">
+                        <button type="button" class="btn btn-danger">
+                            <span class="material-icons">delete</span>
+                            Deletar
+                       </button>
+                    </a>
             </td>
         </tr>
 }
     </tbody>
 </table>
-
-<style>
-
-</style>

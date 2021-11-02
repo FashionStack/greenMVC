@@ -27,6 +27,9 @@ namespace GreenMVC.Pages.ProductPages
         [BindProperty]
         public Product Product { get; set; }
 
+        [BindProperty]
+        public List<Category> Categories { get; set; }
+
         string baseUrl => Configuration.GetConnectionString("ApiUrl");
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -42,12 +45,20 @@ namespace GreenMVC.Pages.ProductPages
                 client.DefaultRequestHeaders.Clear();
                 client.DefaultRequestHeaders.Accept.Add(
                     new MediaTypeWithQualityHeaderValue("application/json"));
-                HttpResponseMessage response = await client.GetAsync("api/Product/" + id);
+                HttpResponseMessage productsResponse = await client.GetAsync("api/Products/" + id);
 
-                if (response.IsSuccessStatusCode)
+                if (productsResponse.IsSuccessStatusCode)
                 {
-                    string result = response.Content.ReadAsStringAsync().Result;
+                    string result = productsResponse.Content.ReadAsStringAsync().Result;
                     Product = JsonConvert.DeserializeObject<Product>(result);
+                }
+
+                HttpResponseMessage categoriesResponse = await client.GetAsync("api/Categories");
+
+                if (categoriesResponse.IsSuccessStatusCode)
+                {
+                    string result = categoriesResponse.Content.ReadAsStringAsync().Result;
+                    Categories = JsonConvert.DeserializeObject<List<Category>>(result);
                 }
             }
 
@@ -73,10 +84,26 @@ namespace GreenMVC.Pages.ProductPages
                     return Page();
                 }
             }
-        } 
-        
-        
-        
-       
+        }
+
+        /*public async Task OnGetAsync()
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Clear();
+                client.DefaultRequestHeaders.Accept.Add(
+                    new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.GetAsync("api/Categories");
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = response.Content.ReadAsStringAsync().Result;
+                    Category = JsonConvert.DeserializeObject<List<Category>>(result);
+                }
+            }
+        }*/
+
+
     }
 }
