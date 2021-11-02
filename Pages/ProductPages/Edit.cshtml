@@ -86,7 +86,7 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <label asp-for="Product.Amount" for="amount" class="control-label">Quantidade </label>
-                    <input asp-for="Product.Amount" type="text" class="form-control" id="amount" name="amount" required>
+                    <input asp-for="Product.Amount" type="number" class="form-control" id="amount" name="amount" min="0" step="1" required>
                 </div>
             </div>
         </div>

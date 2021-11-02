@@ -33,6 +33,9 @@ namespace GreenMVC.Models
         [DisplayName("Quantidade")]
         public int Amount { get; set; }
 
+        [DisplayName("Material Sustentável")]
+        public bool Sustainable { get; set; }
+
         [DisplayName("URL da Imagem")]
         public string ImageUrl { get; set; }
     }
