@@ -5,7 +5,7 @@
     ViewData["Title"] = "Index";
 }
    
-    <h3 id="top-name">Categorias</h3>
+    <h3 class="display-4" id="top-name">Categorias</h3>
    
     <div id="principal">
        
@@ -21,11 +21,7 @@
 
                     <div id="delete">
                         <a class="btn-save bt-dl"
-                           asp-page="./Delete/id=?"
-                           data-id="@item.CategoryId"
-                           data-body-message="deseja deletar este item"
-                           dara-controller="Api/Categories"
-                           onclick="return confirm('Deseja deletar este item ? ');">
+                            asp-page="./Delete" asp-route-id="@item.CategoryId">
                             <span class="material-icons">
                                 delete
                             </span>Deletar
