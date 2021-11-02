@@ -30,8 +30,11 @@ namespace GreenMVC.Models
         [DisplayName("REF")]
         public string ReferenceCode { get; set; }
 
-        [DisplayName("  Quantidade ")]
+        [DisplayName("Quantidade")]
         public int Amount { get; set; }
+
+        [DisplayName("Material Sustentável")]
+        public bool Sustainable { get; set; }
 
         [DisplayName("URL da Imagem")]
         public string ImageUrl { get; set; }
