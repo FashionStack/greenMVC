@@ -13,20 +13,20 @@
 
 <div class="col-md-6 col-lg-9 stock-management">
     <div class="card-create">
-        <form method="post">
+        <form id="stock-amount" method="post">
             <div class="row">
                 <input type="hidden" asp-for="Product.ProductId" />
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="amount" class="control-label">Estoque total: </label>
-                        <h3 id="amount" name="amount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
+                        <h3 id="old-amount" name="oldAmount">@Html.DisplayFor(model => Model.Product.Amount)</h3>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="stock-change" class="control-label">Movimentação de estoque</label>
                         <div class="d-flex">
-                            <input type="number" name="amount" />
+                            <input type="number" id="insert-amount" name="Product.Amount" value="0" />
                         </div>
                     </div>
                 </div>
@@ -47,3 +47,14 @@
         </form>
     </div>
 </div>
+<script>
+    $("form#stock-amount").on("submit", function (e) {
+        var oldValue = parseInt($("#old-amount").text());
+        var insertValue = parseInt($("#insert-amount").val());
+
+        if (insertValue < 0 && Math.abs(insertValue) > oldValue) {
+            e.preventDefault();
+            alert("A quantidade informada para retirada é maior que o estoque disponível.");
+        }
+    });
+</script>

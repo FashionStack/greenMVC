@@ -16,18 +16,17 @@ using Microsoft.Extensions.Configuration;
 
 namespace GreenMVC.Pages.ProductPages
 {
+    [BindProperties]
     public class EditModel : PageModel
     {
         private IConfiguration Configuration;
+
         public EditModel(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        [BindProperty]
         public Product Product { get; set; }
-
-        [BindProperty]
         public List<Category> Categories { get; set; }
 
         string baseUrl => Configuration.GetConnectionString("ApiUrl");

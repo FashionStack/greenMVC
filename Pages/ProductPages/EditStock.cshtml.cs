@@ -78,7 +78,7 @@ namespace GreenMVC.Pages.ProductPages
                 }
                 else
                 {
-                    return RedirectToPage("./Create");
+                    return RedirectToPage("./Index");
                 }
             }
         }

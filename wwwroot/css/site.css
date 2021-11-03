@@ -223,7 +223,7 @@ select.size, select.category {
         width: 30em;
     }
 
-    .stock-management h3#amount {
+    .stock-management h3#old-amount {
         font-size: xx-large;
         font-weight: 400;
     }
@@ -232,7 +232,7 @@ select.size, select.category {
         font-size: large;
     }
 
-    .stock-management .card-create input[name=amount] {
+    .stock-management .card-create input#insert-amount {
         width: 245px;
         font-size: xx-large;
     }
